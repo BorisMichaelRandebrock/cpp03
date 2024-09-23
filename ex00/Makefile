@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/16 12:04:01 by brandebr          #+#    #+#              #
-#    Updated: 2024/09/19 18:31:26 by brandebr         ###   ########.fr        #
+#    Created: 2024/09/23 13:00:26 by brandebr          #+#    #+#              #
+#    Updated: 2024/09/23 19:09:23 by brandebr         ###   ########.fr        #
 #                                                                              #
-# **************************************
+# **************************************************************************** #
 
 NAME = ClapTrap
 
-SRC = main.cpp
+SRC = main.cpp ClapTrap.cpp
 
 OBJ_DIR = obj/
 
@@ -20,7 +20,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
 all: Makefile $(NAME)
 
