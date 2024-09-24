@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:21:19 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 15:05:57 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:21:51 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 ClapTrap& ClapTrap::operator=(const ClapTrap &copy) {
 		if (this != &copy) {
 			_name = copy._name;
+			_hitPoints = copy._hitPoints;
+			_energyPoints = copy._energyPoints;
+			_attackDamage = copy._attackDamage;
 		}
 		return *this;
 }
@@ -96,14 +99,3 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << BLUE << this->getName() << " has not enough hit points left to repair itself... " << RESET << std::endl;
 	}
 }
-/*
- * When ClapTrack attacks, it causes its target to lose <attack damage> hit points.
-When ClapTrap repairs itself, it gets <amount> hit points back. Attacking and repairing
-cost 1 energy point each. Of course, ClapTrap can’t do anything if it has no hit points
-or energy points left.
-In all of these member functions, you have to print a message to describe what happens. For example, the attack() function may display something like (of course, without
-the angle brackets):
-ClapTrap <name> attacks <target>, causing <damage> points of damage!
-The constructors and destructor must also display a message, so your peer-evaluators
-can easily see they have been called.
-Implement and turn in your own tests to ensure your code works as expected.*/
