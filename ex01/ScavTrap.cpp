@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 18:56:54 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:27:48 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ ScavTrap::~ScavTrap() {
 }
 
 void ScavTrap::guardGate(void) {
-	if (this->getHitPoints() > 0) {
-		std::cout << this->getHitPoints() << " scavs hit points **********" << std::endl;
+	if (_hitPoints > 0) {
+	//	std::cout << this->getHitPoints() << " scavs hit points **********" << std::endl;
 		std::cout << RED_BACKGROUND << this->getName() << " is now in Gatekeeper mode.. " << RESET << std::endl;
 	} else {
-	std::cout << RED_BACKGROUND << this->getName() << " cant do... no hp... scav is detroyed.. " << RESET << std::endl;
+		std::cout << RED_BACKGROUND << this->getName() << " cant do... no hp... scav is detroyed.. " << RESET << std::endl;
 	}
 
 }

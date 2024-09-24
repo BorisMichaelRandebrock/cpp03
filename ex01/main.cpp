@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 19:04:41 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:26:11 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main(void) {
 	}*/
 
 
-		std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
+/*		std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
 	{
 		std::cout << "\033[34mConstructing\033[0m" << std::endl;
 		ClapTrap a;
@@ -107,8 +107,8 @@ int main(void) {
 		d.takeDamage(15);
 		d.attack("ScavTrap-clone");
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
-	}
-	{
+	}*/
+/*
 		std::cout  << RED << "****************************" << RESET <<std::endl;
 		std::cout << "----Making ClapTraps----" << std::endl;
 		ClapTrap	clap("Clap");
@@ -124,17 +124,17 @@ int main(void) {
 		ScavTrap	scav3 = cool_scav;
 
 		std::cout << "----Destructors go brrrr----" << std::endl;
-	}
-	{
+*/
 		std::cout << "----------Functionality Tests----------" << std::endl;
-		ScavTrap scav("Scav");
-		scav.guardGate();
-		scav.attack("Evaluator");
-		scav.takeDamage(20);
-		scav.beRepaired(12);
-		scav.takeDamage(1200);
-		scav.guardGate();
-	}
+		ScavTrap scav7("Scav");
+		scav7.guardGate();
+		scav7.attack("Evaluator");
+		scav7.takeDamage(20);
+		scav7.beRepaired(12);
+		scav7.takeDamage(92);
+		//sleep(10);
+		scav7.guardGate();
+
 	return 0;
 
 }
