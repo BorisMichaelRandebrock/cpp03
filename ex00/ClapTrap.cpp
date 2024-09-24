@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:21:19 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/23 19:09:12 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:05:57 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ClapTrap::ClapTrap(void)
 	: _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-		std::cout << "ClapTrap Default Constructor called" << std::endl;
+		std::cout << GREEN << "ClapTrap Default Constructor called" << RESET  << std::endl;
 	}
 
 ClapTrap::ClapTrap(const std::string name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-		std::cout << "ClapTrap Constructor called with the name" << _name << std::endl;
+		std::cout << YELLOW << "ClapTrap Constructor called naming the new ClapTrap " << GREEN << _name << RESET << std::endl;
 	}
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -59,42 +59,41 @@ void ClapTrap::setName(const std::string name) {
 }
 
 void ClapTrap::attack(const std::string &target) {
-//	ClapTrap *victim = target->getName();
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
-		std::cout << this->getName() << " attacks " << target << ", causing 1 point of damage!" << std::endl;
-//		victim->takeDamage(1);
-//		 std::cout << target << " has now " << victim->getDamagePoints()<< " Damage Points" << std::endl;
-		_hitPoints--;
+		std::cout << this->getName() << RED << " attacks " << target << ", causing damage!" << RESET  << std::endl;
 		_energyPoints--;
-		std::cout << this->getName() << " has now " << getHitPoints() << " Hit Points  and " << getDamagePoints() <<  std::endl;
+		std::cout << this->getName() << " has now " << getHitPoints() << " Hit Points and " << this->getEnergyPoints() << " energy" <<  std::endl;
 	} else if (this->_energyPoints == 0) {
-		std::cout << this->getName() << " has not enough energy 😨" << std::endl;
+		std::cout << BLUE << this->getName() << " has no more energy 😨" << RESET << std::endl;
 	} else {
-		std::cout << this->getName() << " has not enough hit points 😨" << std::endl;
+		std::cout << BLUE << this->getName() << " has not enough hit points 😨" << RESET << std::endl;
 	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (this->_attackDamage == 0) {
-		std::cout << this->getName() << " has already been destroyed 🕈" << std::endl;
+	if (this->_hitPoints == amount) {
+		_hitPoints = 0;
+		std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points" 
+			<< RESET << std::endl;
+	} else if (this->_hitPoints < amount) {
+		std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
 		return ;
-	} else if (this->_attackDamage > amount) {
-		_attackDamage -= amount;
-		std::cout << this->getName() << " has been attacked and remains with " << this->getDamagePoints() << " damage points" << std::endl;
-	} else if (this->_attackDamage > 0) {
-		_attackDamage = 0;
-		std::cout << this->getName() << " has been attacked and remains with " << this->getDamagePoints() << " damage points" << std::endl;
+	} else if (this->_hitPoints > amount) {
+		_hitPoints -= amount;
+		std::cout << CYAN << this->getName() << " has been attacked and remains with " << this->getHitPoints() << " hit points" << RESET  << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (this->_energyPoints > 0) {
+	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
 		_energyPoints--;
 		_hitPoints += amount;
-		std::cout << this->getName() << " has repaired itself at the cost of 1 energy point and has now " 
-			<< this->getEnergyPoints() << " energy points" << std::endl;
+		std::cout << GREEN << this->getName() << " has repaired itself at the cost of 1 energy point and has now " 
+			<< this->getEnergyPoints() << " energy points and " << this->getHitPoints()  << " hit points" << RESET << std::endl;
+	} else if (this->_energyPoints == 0) {
+		std::cout << BLUE << this->getName() << " has not enough energy left to repair itself... " << RESET << std::endl;
 	} else {
-		std::cout << this->getName() << " has not enough energy left to repair itself... " << std::endl;
+		std::cout << BLUE << this->getName() << " has not enough hit points left to repair itself... " << RESET << std::endl;
 	}
 }
 /*
@@ -102,8 +101,6 @@ void ClapTrap::beRepaired(unsigned int amount) {
 When ClapTrap repairs itself, it gets <amount> hit points back. Attacking and repairing
 cost 1 energy point each. Of course, ClapTrap can’t do anything if it has no hit points
 or energy points left.
-5
-C++ - Module 03 Inheritance
 In all of these member functions, you have to print a message to describe what happens. For example, the attack() function may display something like (of course, without
 the angle brackets):
 ClapTrap <name> attacks <target>, causing <damage> points of damage!
