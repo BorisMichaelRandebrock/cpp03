@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 19:27:48 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:31:12 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,26 @@ ScavTrap::~ScavTrap() {
 
 void ScavTrap::guardGate(void) {
 	if (_hitPoints > 0) {
-	//	std::cout << this->getHitPoints() << " scavs hit points **********" << std::endl;
 		std::cout << RED_BACKGROUND << this->getName() << " is now in Gatekeeper mode.. " << RESET << std::endl;
 	} else {
-		std::cout << RED_BACKGROUND << this->getName() << " cant do... no hp... scav is detroyed.. " << RESET << std::endl;
+		std::cout << RED_BACKGROUND << this->getName() << ".. can't do Gatekeeper... no hit points... scav " 
+			<< this->getName() << " .. destroyed.. prrrfzzczczxx  🤖 ... " << RESET << std::endl;
 	}
+}
 
+void ScavTrap::takeDamage(int amount) {
+	if ((int)this->_hitPoints == amount) {
+		_hitPoints = 0;
+		std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points"
+			<< RESET << std::endl;
+	} else if ((int)this->_hitPoints < amount) {
+		_hitPoints = 0;
+		std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
+		return ;
+	} else if ((int)this->_hitPoints > amount) {
+		_hitPoints -= amount;
+		std::cout << CYAN << this->getName() << " has been attacked and remains with "
+			<< this->getHitPoints() << " hit points" << RESET  << std::endl;
+	}
 }
 

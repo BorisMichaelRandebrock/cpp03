@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:21:19 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 16:21:51 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:44:41 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points" 
 			<< RESET << std::endl;
 	} else if (this->_hitPoints < amount) {
+		_hitPoints =  0;
 		std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
 		return ;
 	} else if (this->_hitPoints > amount) {

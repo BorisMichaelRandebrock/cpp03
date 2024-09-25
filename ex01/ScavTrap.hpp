@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:27 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 17:10:59 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:44:04 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class ScavTrap : public ClapTrap {
 		ScavTrap &operator=(const ScavTrap &copy);
 		~ScavTrap(void);
 
-		void guardGate(void);
+		void	guardGate(void);
+		void	takeDamage(int amount);
 };
 
 #endif
