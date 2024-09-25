@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:59:04 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/25 19:29:38 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/24 11:03:02 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@
 #define WHITE   "\033[37m"
 
 class ClapTrap {
-	protected:
+	private:
 	std::string		_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
-	static ClapTrap* clapTrapList[10];
-    static int count;
 
 	public:
 	ClapTrap(void);
@@ -44,16 +42,14 @@ class ClapTrap {
 	ClapTrap &operator=(const ClapTrap &copy);
 	~ClapTrap(void);
 
-	const std::string &getName(void) const;
-	void		setName(const std::string name);
-	void		setAttackDamage(unsigned int amount);
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
-	int			getDamagePoints(void);
-	int			getHitPoints(void);
-	int			getEnergyPoints(void);
-	static void	displayAllClapTraps();
+	const	std::string &getName(void) const;
+	void	setName(const std::string name);
+	void	attack(const std::string& target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
+	int		getDamagePoints(void);
+	int		getHitPoints(void);
+	int		getEnergyPoints(void);
 };
 
 #endif

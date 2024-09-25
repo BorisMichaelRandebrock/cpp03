@@ -21,12 +21,15 @@ int main(void) {
 		sleep(2);
 	{
 		ClapTrap boo("Boo");
+		ClapTrap randomClap("a robot without appearent reason");
+		ClapTrap rand("some other robot");
+		boo.setAttackDamage(5);
 		std::cout << "Boo is born with " << boo.getHitPoints() << " hit points." <<  std::endl;
 		sleep(1);
 		std::cout << "Boo-evil-clone default construction:"  << std::endl;
 		ClapTrap clone;
 		sleep(2);
-		clone.attack("a robot without apearent reason");
+		clone.attack("a robot without appearent reason");
 		sleep(1);
 		clone.attack("some other robot");
 		sleep(1);
@@ -38,9 +41,10 @@ int main(void) {
 		sleep(1);
 		boo.beRepaired(3);
 		sleep(1);
+		boo.setAttackDamage(1);
 		while (boo.getHitPoints() > -1 && boo.getEnergyPoints() > -1) {
 			sleep(1);
-			boo.attack("his evil clone");
+			boo.attack("");
 			if (boo.getEnergyPoints() == (unsigned int)7) {
 				clone.attack("Boo");
 				sleep(1);
