@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/25 19:51:23 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:27:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,59 +22,34 @@ int main(void) {
 	std::cout << "******************************************" << std::endl;
 	std::cout << "******* Let the adventures begin! ********" << std::endl;
 	std::cout << "******************************************" << std::endl << std::endl;
+	sleep(1);
 
-/*	ClapTrap boo("Boo");
-	ClapTrap clone("Evil Clone");
-	std::cout << "Boo has " << boo.getHitPoints() << " hit points, Clone has " 
-		<< clone.getHitPoints() << " hit points." << std::endl;
-	clone.attack("Boo");
-	boo.takeDamage(5);
-	std::cout << "Boo fights back with determination!" << std::endl;
-	boo.attack("Clone");
-	clone.takeDamage(5);
-	clone.beRepaired(5);
-	boo.beRepaired(10);
-	clone.attack("Boo");
-	boo.takeDamage(5);
-	boo.attack("Clone");
-	clone.takeDamage(1);
-	std::cout << "Boo lands a powerful blow on the clone!" << std::endl;
-	clone.attack("Boo");
-	boo.takeDamage(5);
-	boo.attack("Clone");
-	clone.takeDamage(20);
-	std::cout << "Boo remains standing with " << boo.getHitPoints() << " hit points left!" << std::endl;
-	sleep(5);
-*/
-
-	   ClapTrap boo("Boo");
+	ClapTrap boo("Boo");
     ClapTrap clone("Clone");
-    boo.setAttackDamage(5); // Setting attack damage for Boo
-    clone.setAttackDamage(5); // Setting attack damage for Clone
-
+	std::cout << std::endl;
+	sleep(1);
+    boo.setAttackDamage(5);
+    clone.setAttackDamage(5);
+	std::cout << std::endl;
     std::cout << "Boo has " << boo.getHitPoints() << " hit points, Clone has "
-              << clone.getHitPoints() << " hit points." << std::endl;
-
-    clone.attack("Boo"); // Clone attacks Boo
+              << clone.getHitPoints() << " hit points." << std::endl << std::endl;
     sleep(1);
-    boo.attack("Clone"); // Boo fights back
+	clone.attack("Boo");
     sleep(1);
-    boo.attack("Clone"); // Boo fights back
+    boo.attack("Clone");
     sleep(1);
-    clone.beRepaired(5); // Clone repairs itself
+    boo.attack("Clone");
     sleep(1);
-    boo.beRepaired(10); // Boo repairs itself
+    clone.beRepaired(5);
+    sleep(1);
+    boo.beRepaired(10);
 	boo.attack("Clone");
     sleep(1);
-    clone.attack("Boo"); // Clone attacks Boo
+    clone.attack("Boo");
     sleep(1);
-    boo.setAttackDamage(15); // Setting attack damage for Boo
-	
-    boo.attack("Clone"); // Boo attacks Clone
-    sleep(1);
-	std::cout << clone.getHitPoints() << std::endl;
-    std::cout << "Boo remains standing with " << boo.getHitPoints() << " hit points left!" << std::endl;
-    sleep(5);
+    std::cout << "Boo remains standing with " << boo.getHitPoints()
+		<< " hit points left!" << std::endl;
+    sleep(3);
 
 
 	std::cout << std::endl << "******************************************" << std::endl;
@@ -106,15 +81,20 @@ int main(void) {
 	std::cout << "Tobi: Please... tell me... who are you? .. and password..? ";
 	std::cin >> name;
 	ScavTrap evaluator(name);
-	std::cout << "🤖 Password incorrect...  😡 " << std::endl;
+	std::cout << RED << "🤖 ...GRR... PASSWORD INCORRECT...  😡 " << RESET << std::endl;
 	sleep(1);
-	tobi.attack(name);
+	std::cout << RED << "YOU SHALL NOT PASS!!!" << RESET << std::endl;
 	sleep(1);
+	tobi.ClapTrap::attack(name);
+	sleep(1);
+	evaluator.setAttackDamage(100);
+	std::cout << evaluator.getName() << " retaliates " << std::endl;
+	evaluator.attack("Tobi");
 	tobi.takeDamage(20);
 	sleep(1);
 	tobi.beRepaired(12);
 	sleep(1);
-	tobi.takeDamage((int)192);
+	tobi.takeDamage(102);
 	sleep(2);
 	tobi.guardGate();
 	sleep(1);

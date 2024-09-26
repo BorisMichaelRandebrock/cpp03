@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:59:04 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/25 19:29:38 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:00:55 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap {
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
-	static ClapTrap* clapTrapList[10];
+	static ClapTrap* clapTrapList[42];
     static int count;
 
 	public:
@@ -56,4 +56,7 @@ class ClapTrap {
 	static void	displayAllClapTraps();
 };
 
+
 #endif
+/*	virtual void		attack(const std::string& target) = 0;
+scav harry.ClapTrap::Attack*/

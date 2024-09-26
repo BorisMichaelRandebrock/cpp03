@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/24 16:40:13 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/26 19:01:15 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void) {
 		sleep(1);
 		clone.beRepaired(5);
 		sleep(1);
-		clone.attack("some other other robot");
+		clone.attack("some other, random robot");
 		sleep(1);
 		boo.beRepaired(3);
 		sleep(1);
@@ -48,18 +48,16 @@ int main(void) {
 			if (boo.getEnergyPoints() == (unsigned int)7) {
 				clone.attack("Boo");
 				sleep(1);
-				boo.takeDamage(5);
-				sleep(2);
 				boo.beRepaired(3);
 				sleep(2);
 			}
 			if (boo.getEnergyPoints() == 2) {
-				boo.attack("his evil clone");
-				sleep(1);
-				clone.takeDamage(10);
+				boo.attack("");
+				std::cout << boo.getName() << " strikes again at his evil clone" << std::endl;
 				sleep(1);
 				clone.attack("Boo");
 				std::cout << GREEN << "A futile attempt of the evil clone to retaliate... " << RESET <<  std::endl;
+				boo.setAttackDamage(5);
 			}
 			if (boo.getEnergyPoints() == 0) {
 				std::cout << RED_BACKGROUND << "the evil clone" << RESET;
