@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 13:47:16 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/27 13:37:15 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void ScavTrap::attack(const std::string &target) {
 		for (int i = 0; i < count; ++i) {
 			if (clapTrapList[i] != 0){
 				if (!clapTrapList[i]->getName().compare(target)) {
-					std::cout << RED << "Eat sh.. " << RESET << std::endl;
 					std::cout << RED << _name << " attacks " << target << " with "
 						<< _attackDamage << " points of damage!" << RESET << std::endl;
 					_energyPoints--;
+					std::cout << RED << "Eat sh.. " << RESET << std::endl;
 					clapTrapList[i]->takeDamage(_attackDamage);
 					targetFound = true;
 					break;

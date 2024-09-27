@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:59:04 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/26 18:31:03 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:34:03 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #define WHITE   "\033[37m"
 
 class ClapTrap {
-	protected:
+	private:
 	std::string		_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
