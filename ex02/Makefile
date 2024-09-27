@@ -6,13 +6,13 @@
 #    By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 13:00:26 by brandebr          #+#    #+#              #
-#    Updated: 2024/09/27 13:32:58 by brandebr         ###   ########.fr        #
+#    Updated: 2024/09/27 14:54:02 by brandebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ_DIR = obj/
 

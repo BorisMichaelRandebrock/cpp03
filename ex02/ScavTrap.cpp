@@ -6,17 +6,17 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 13:37:15 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:56:38 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp" 
 
 ScavTrap::ScavTrap(void) : ClapTrap("") {
-if (ClapTrap::count < 42) { 
-        ClapTrap::clapTrapList[ClapTrap::count] = this;
-        ClapTrap::count++; 
-    }
+	if (ClapTrap::count < 42) { 
+		ClapTrap::clapTrapList[ClapTrap::count] = this;
+		ClapTrap::count++; 
+	}
 	this->_hitPoints  = 100; 
 	this->_energyPoints = 50; 
 	this->_attackDamage = 20;
@@ -25,9 +25,9 @@ if (ClapTrap::count < 42) {
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
 	if (ClapTrap::count < 42) { 
-        ClapTrap::clapTrapList[ClapTrap::count] = this;
-        ClapTrap::count++; 
-    }
+		ClapTrap::clapTrapList[ClapTrap::count] = this;
+		ClapTrap::count++; 
+	}
 
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -43,9 +43,9 @@ ScavTrap::ScavTrap(const ScavTrap &copy) {
 	this->_energyPoints = copy._energyPoints;
 	this->_attackDamage = copy._attackDamage;
 	if (ClapTrap::count < 42) { 
-        ClapTrap::clapTrapList[ClapTrap::count] = this;
-        ClapTrap::count++; 
-    }
+		ClapTrap::clapTrapList[ClapTrap::count] = this;
+		ClapTrap::count++; 
+	}
 	std::cout << CYAN << "ScavTrap Copy Constructor called" << RESET  << std::endl;
 }
 
@@ -72,21 +72,21 @@ void ScavTrap::guardGate(void) {
 	}
 }
 /*
-void ScavTrap::takeDamage(int amount) {
-	if ((int)this->_hitPoints == amount) {
-		_hitPoints = 0;
-		std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points"
-			<< RESET << std::endl;
-	} else if ((int)this->_hitPoints < amount) {
-		_hitPoints = 0;
-		std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
-		return ;
-	} else if ((int)this->_hitPoints > amount) {
-		_hitPoints -= amount;
-		std::cout << CYAN << this->getName() << " has been attacked and remains with "
-			<< this->getHitPoints() << " hit points" << RESET  << std::endl;
-	}
-}*/
+   void ScavTrap::takeDamage(int amount) {
+   if ((int)this->_hitPoints == amount) {
+   _hitPoints = 0;
+   std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points"
+   << RESET << std::endl;
+   } else if ((int)this->_hitPoints < amount) {
+   _hitPoints = 0;
+   std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
+   return ;
+   } else if ((int)this->_hitPoints > amount) {
+   _hitPoints -= amount;
+   std::cout << CYAN << this->getName() << " has been attacked and remains with "
+   << this->getHitPoints() << " hit points" << RESET  << std::endl;
+   }
+   }*/
 
 void ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {
