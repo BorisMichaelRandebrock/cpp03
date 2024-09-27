@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 16:54:04 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:45:50 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include <unistd.h>
-#include <ctime>
 #include <cstdlib>
+#include <ctime>
 
 int main(void) {
+	std::srand(static_cast<unsigned int>(std::time(0)));
 	std::cout << "\033[2J\033[H" << std::endl;
 	sleep(1);
 	std::cout << "Well, enough of claps and scavs..., i am not going to bore you with that.. "
@@ -73,6 +74,7 @@ int main(void) {
     sleep(2);
 
 	int damage = std::rand() % 50 + 1;
+	evaluator.setAttackDamage(damage);
     evaluator.attack("Tobi");
     sleep(1);
 
@@ -97,7 +99,7 @@ int main(void) {
     } else {
         std::cout << "Tobi: Hmm... I don't understand that. I'll just rest for now." << std::endl;
     }
-/*    sleep(1);
+    sleep(1);
 
 	std::cout << "Please have a look at all tis beautyfull Frags.. :" <<std::endl;
 	tobi.displayAllClapTraps();
@@ -114,6 +116,6 @@ int main(void) {
 		std::cout << "Ah, what the heck... let's just get on with it..  😥" << std::endl;
 		sleep(1);
 	}
-*/	sleep(1);
+	sleep(1);
 		return 0;
 }
