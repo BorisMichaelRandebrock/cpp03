@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 17:45:50 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/09/30 10:57:13 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(void) {
     tobi.highFivesGuys();
 
     std::string response;
+    std::string response3;
     std::string response2;
     std::cout << "Tobi: Hey, " << evaluator.getName() << "! Do you want to see something cool? (yes/no): ";
     std::cin >> response;
@@ -71,22 +72,25 @@ int main(void) {
     sleep(2);
 
     std::cout << "Tobi: Time for a quick duel, " << evaluator.getName() << "! Get ready!" << std::endl;
-    sleep(2);
-
-	int damage = std::rand() % 50 + 1;
-	evaluator.setAttackDamage(damage);
-    evaluator.attack("Tobi");
-    sleep(1);
-
-    if (damage >= 25) {
-        std::cout << BLUE << "Tobi: Ouch! That hurt! But I can still fight!" << RESET << std::endl;
-		tobi.highFivesGuys();
-    } else {
-        std::cout << "Tobi: Haha! That barely tickled! Try harder next time!" << std::endl;
-		tobi.highFivesGuys();
-    }
-
-    sleep(2);
+     std::cout << "I will give you a random attackdamage and you attack me, ok " << evaluator.getName()
+		 << "? answer yes if you want to give it a go." << std::endl;
+	 std::cin  >> response3;
+	 if (response3 == "yes") {
+		 int damage = std::rand() % 50 + 1;
+		evaluator.setAttackDamage(damage);
+    	evaluator.attack("Tobi");
+	    sleep(1);
+	    if (damage >= 25) {
+    	    std::cout << BLUE << "Tobi: Ouch! That hurt! But I can still fight!" << RESET << std::endl;
+			tobi.highFivesGuys();
+ 	   } else {
+    	    std::cout << "Tobi: Haha! That barely tickled! Try harder next time!" << std::endl;
+			tobi.highFivesGuys();
+			}
+	 } else {
+		 std::cout << "Aww, i thought it could be fun.. well... " << std::endl;
+	 }
+	sleep(1);
     evaluator.highFivesGuys();
 
     std::cout << "Tobi: Should I go into give you high five <hf> or should I repair <rp> myself? ";
