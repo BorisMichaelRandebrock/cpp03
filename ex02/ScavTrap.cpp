@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
+/*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 14:56:38 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:48:06 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,6 @@ void ScavTrap::guardGate(void) {
 			<< this->getName() << " .. destroyed.. prrrfzzczczxx  🤖 ... " << RESET << std::endl;
 	}
 }
-/*
-   void ScavTrap::takeDamage(int amount) {
-   if ((int)this->_hitPoints == amount) {
-   _hitPoints = 0;
-   std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points"
-   << RESET << std::endl;
-   } else if ((int)this->_hitPoints < amount) {
-   _hitPoints = 0;
-   std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
-   return ;
-   } else if ((int)this->_hitPoints > amount) {
-   _hitPoints -= amount;
-   std::cout << CYAN << this->getName() << " has been attacked and remains with "
-   << this->getHitPoints() << " hit points" << RESET  << std::endl;
-   }
-   }*/
 
 void ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {

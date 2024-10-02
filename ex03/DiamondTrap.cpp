@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:20:02 by brandebr          #+#    #+#             */
-/*   Updated: 2024/10/02 14:16:59 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:48:06 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &copy) {
 	}
 	return *this;
 }
-
 
 DiamondTrap::~DiamondTrap() {
 		std::cout << "DiamondTrap " << _name << " deconstructed" << std::endl;
