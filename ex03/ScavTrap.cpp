@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
+/*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:57:48 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/30 16:41:50 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:42:10 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(void) : ClapTrap("") {
 	this->_hitPoints  = 100; 
 	this->_energyPoints = 50; 
 	this->_attackDamage = 20;
-	std::cout << YELLOW << "ScavTrap Default Constructor called" << RESET  << std::endl;
+	std::cout << YELLOW << "ScavTrap Default Constructor called " << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
@@ -33,11 +33,11 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name) {
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 
-	std::cout << GREEN << "ScavTrap Constructor called" << _name << RESET  << std::endl;
+	std::cout << GREEN << "ScavTrap Constructor called " << _name << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) {
-	//*this = copy;
+ScavTrap::ScavTrap(const ScavTrap &copy)
+{
 	this->_name = copy._name; 
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
@@ -71,22 +71,6 @@ void ScavTrap::guardGate(void) {
 			<< this->getName() << " .. destroyed.. prrrfzzczczxx  🤖 ... " << RESET << std::endl;
 	}
 }
-/*
-   void ScavTrap::takeDamage(int amount) {
-   if ((int)this->_hitPoints == amount) {
-   _hitPoints = 0;
-   std::cout << CYAN << "The Claptrap has received a severe blow and remains with 0 hit points"
-   << RESET << std::endl;
-   } else if ((int)this->_hitPoints < amount) {
-   _hitPoints = 0;
-   std::cout << RED_BACKGROUND << this->getName() << " has been destroyed 🕈" << RESET << std::endl;
-   return ;
-   } else if ((int)this->_hitPoints > amount) {
-   _hitPoints -= amount;
-   std::cout << CYAN << this->getName() << " has been attacked and remains with "
-   << this->getHitPoints() << " hit points" << RESET  << std::endl;
-   }
-   }*/
 
 void ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0) {

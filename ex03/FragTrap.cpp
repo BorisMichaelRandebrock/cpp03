@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
+/*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:54:21 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/27 17:43:28 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:28:37 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,40 @@ void FragTrap::displayAllClapTraps() {
             << clapTrapList[i]->getHitPoints() << " hit points and "
             << clapTrapList[i]->getEnergyPoints() << " energy points." << std::endl;
     }
+}
+
+void FragTrap::attack(const std::string &target)
+{
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
+	{
+		bool targetFound = false;
+		for (int i = 0; i < count; ++i)
+		{
+			if (clapTrapList[i] != 0)
+			{
+				if (!clapTrapList[i]->getName().compare(target))
+				{
+					std::cout << RED << _name << " attacks " << target << " with "
+										<< _attackDamage << " points of damage!" << RESET << std::endl;
+					_energyPoints--;
+					std::cout << RED << "Take that:.. " << RESET << std::endl;
+					clapTrapList[i]->takeDamage(_attackDamage);
+					targetFound = true;
+					break;
+				}
+			}
+		}
+		if (!targetFound)
+		{
+			std::cout << "Target " << target << " not found!" << std::endl;
+		}
+	}
+	else if (this->_energyPoints == 0)
+	{
+		std::cout << BLUE << this->getName() << " has no more energy 😨" << RESET << std::endl;
+	}
+	else
+	{
+		std::cout << BLUE << this->getName() << " has not enough hit points 😨" << RESET << std::endl;
+	}
 }

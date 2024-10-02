@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brandebr <brandebr@42barcelona.com>        +#+  +:+       +#+        */
+/*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:49:58 by brandebr          #+#    #+#             */
-/*   Updated: 2024/09/30 19:14:04 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:20:11 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,38 @@ int main(void) {
     DiamondTrap diamond(userName);
     FragTrap frag("Frank");
     ScavTrap scav("Scout");
-    DiamondTrap enemy("Shiny_Diamond"); 
+    DiamondTrap enemy("Shiny_Diamond");
 
-    std::cout << std::endl << GREEN << "Meet our special guests!" << RESET << std::endl;
+    std::cout << std::endl
+              << GREEN << "Meet our special guests!" << YELLOW << std::endl;
     std::cout << userName << " the DiamondTrap has entered the scene!" << std::endl;
     std::cout << "Frank the FragTrap is ready to high five!" << std::endl;
-    std::cout << "Scout the ScavTrap is guarding the gates!" << std::endl;
-    std::cout << RED << "there is a strange Trap showing up: " << enemy.getName() << " an enemy DiamondTrap!" << RESET <<std::endl << std::endl;
-
-    std::cout << YELLOW << "Scout the ScavTrap is activating guard mode..." << RESET << std::endl;
-    sleep(1);
+    std::cout << "Scout the ScavTrap ready to keep the gates!" << std::endl;
+    std::cout << RED << "A foreign, strange Trap is showing up: " << enemy.getName()
+              << " an enemy DiamondTrap!" << RESET << std::endl
+              << std::endl;
+    sleep(2);
+    std::cout << YELLOW << "In response to the appearence of the uninvited guest, Scout, the ScavTrap is activating guard mode..." << RESET << std::endl;
+    sleep(2);
     scav.guardGate();
-    std::cout << "Scout is now guarding the Funhouse gates!" << std::endl << std::endl;
+    std::cout << YELLOW << "Scout is now guarding the Funhouse gates!" << RESET << std::endl
+              << std::endl;
     sleep(1);
 
     std::cout << BLUE << "Frank the FragTrap wants to celebrate with a High Five!" << RESET << std::endl;
     sleep(1);
     frag.highFivesGuys();
-    std::cout << "Frank says: \"Come on, high five me, I won't leave you hanging!\"" << std::endl << std::endl;
+    std::cout << "Frank says: \"Come on, high five me, don't let me hanging..!\"" << std::endl
+              << std::endl;
     sleep(1);
 
     std::cout << MAGENTA << userName << " the DiamondTrap is having an identity crisis..." << RESET << std::endl;
     sleep(1);
     diamond.whoAmI();
-    std::cout << "Poor " << diamond.getName() << "... Maybe a little confidence boost would help!" << std::endl;
+    std::cout << BLUE << "Poor " << userName << "... Maybe a little confidence boost would help!" << std::endl;
 
-    std::cout << std::endl << "Say something nice to: " << diamond.getName() << ". ";
+    std::cout << std::endl
+              << YELLOW << "Say something nice to: " << userName << ". " MAGENTA;
     std::string compliment;
     std::cin.ignore();
     std::getline(std::cin, compliment);
@@ -77,10 +83,15 @@ int main(void) {
         } else {
             std::cout << RED << enemy.getName() << " is having an identity crisis! \"Who am I? Am I just a shiny rock?\"" << RESET << std::endl;
 			enemy.whoAmI();
-			diamond.setAttackDamage(2);
-			diamond.attack(scav.getName());
+            sleep(3);
+            std::cout << YELLOW << "In order to set an end to the attacks of the poor " << enemy.getName() << " "
+                      << diamond.getName() << " lowers his attack to a minimum and gives Scout a nudge" << RESET << std::endl;
+            diamond.setAttackDamage(0);
+            diamond.attack(scav.getName());
             sleep(1);
-            std::cout << BLUE << "Frank says: \"You're more than just a shiny rock! Let's celebrate your uniqueness!\"" << RESET << std::endl;
+            std::cout << BLUE << "Frank says: \"You're more than just a shiny rock! "
+                      << enemy.getName() << std::endl
+                      << "Let's celebrate your uniqueness!\"" << RESET << std::endl;
             frag.highFivesGuys();
 			diamond.highFivesGuys();
 			enemy.highFivesGuys();
@@ -94,8 +105,8 @@ int main(void) {
 			enemy.beRepaired(50);
 			break ;
         }
-
-        std::cout << std::endl << "The fight continues!" << std::endl;
+        std::cout << std::endl
+                  << YELLOW << "The fight continues!" << RESET << std::endl;
         sleep(1);
     }
     std::cout << std::endl << GREEN << "The party continues..!" << RESET << std::endl;
